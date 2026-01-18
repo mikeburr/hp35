@@ -1,7 +1,8 @@
 {
     "scripts": {
         "build": "rollup -c",
-        "watch": "rollup -c -w --watch.onEnd=\"streamdeck restart org.mikeburr.hp35\""
+        "deploy": "rsync -rv org.mikeburr.hp35.sdPlugin/ /home/mike/.config/opendeck/plugins/org.mikeburr.hp35.sdPlugin/ && opendeck --reload-plugin org.mikeburr.hp35",
+        "watch": "rollup -c -w --watch.onEnd=\"opendeck --reload-plugin org.mikeburr.hp35.sdPlugin\""
     },
     "type": "module",
     "devDependencies": {

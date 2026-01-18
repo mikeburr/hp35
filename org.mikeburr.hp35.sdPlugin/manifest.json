@@ -4,11 +4,202 @@
 	"Author": "Mike Burr",
 	"Actions": [
 		{
-			"Name": "Counter",
-			"UUID": "org.mikeburr.hp35.increment",
+			"Name": "0",
+			"UUID": "org.mikeburr.hp35.0",
 			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "Displays a count, which increments by one on press.",
-			"PropertyInspectorPath": "ui/increment-counter.html",
+			"Tooltip": "0",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": "0",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "1",
+			"UUID": "org.mikeburr.hp35.1",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "1",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": "1",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "2",
+			"UUID": "org.mikeburr.hp35.2",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "2",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": "2",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "3",
+			"UUID": "org.mikeburr.hp35.3",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "3",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": "3",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "4",
+			"UUID": "org.mikeburr.hp35.4",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "4",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": "4",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "5",
+			"UUID": "org.mikeburr.hp35.5",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "5",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": "5",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "6",
+			"UUID": "org.mikeburr.hp35.6",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "6",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": "6",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "7",
+			"UUID": "org.mikeburr.hp35.7",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "7",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": "7",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "8",
+			"UUID": "org.mikeburr.hp35.8",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "8",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": "8",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "9",
+			"UUID": "org.mikeburr.hp35.9",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "9",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": "9",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Decimal",
+			"UUID": "org.mikeburr.hp35.decimal",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "decimal point",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": ".",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "CLx",
+			"UUID": "org.mikeburr.hp35.clx",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "CLx",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"Title": "CLx",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Display",
+			"UUID": "org.mikeburr.hp35.display",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "Calculator display.",
 			"Controllers": [
 				"Keypad"
 			],
