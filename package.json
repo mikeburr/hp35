@@ -2,6 +2,7 @@
     "scripts": {
         "build": "rollup -c",
         "deploy": "rsync -rv org.mikeburr.hp35.sdPlugin/ /home/mike/.config/opendeck/plugins/org.mikeburr.hp35.sdPlugin/ && opendeck --reload-plugin org.mikeburr.hp35",
+        "test": "vitest",
         "watch": "rollup -c -w --watch.onEnd=\"opendeck --reload-plugin org.mikeburr.hp35.sdPlugin\""
     },
     "type": "module",
@@ -15,7 +16,8 @@
         "@types/node": "~20.15.0",
         "rollup": "^4.0.2",
         "tslib": "^2.6.2",
-        "typescript": "^5.2.2"
+        "typescript": "^5.2.2",
+        "vitest": "^4.0.17"
     },
     "dependencies": {
         "@elgato/streamdeck": "^2.0.0"
