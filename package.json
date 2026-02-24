@@ -3,6 +3,8 @@
         "build": "rollup -c",
         "deploy": "rsync -rv org.mikeburr.hp35.sdPlugin/ /home/mike/.config/opendeck/plugins/org.mikeburr.hp35.sdPlugin/ && opendeck --reload-plugin org.mikeburr.hp35",
         "test": "vitest",
+        "test:coverage": "vitest run --coverage",
+        "test:debug": "vitest --inspect-brk --no-file-parallelism --test-timeout=0",
         "watch": "rollup -c -w --watch.onEnd=\"opendeck --reload-plugin org.mikeburr.hp35.sdPlugin\""
     },
     "type": "module",
@@ -14,6 +16,7 @@
         "@rollup/plugin-typescript": "^12.1.0",
         "@tsconfig/node20": "^20.1.2",
         "@types/node": "~20.15.0",
+        "@vitest/coverage-v8": "^4.0.17",
         "rollup": "^4.0.2",
         "tslib": "^2.6.2",
         "typescript": "^5.2.2",

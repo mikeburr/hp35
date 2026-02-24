@@ -39,7 +39,7 @@ export class Display extends SingletonAction {
     }
 
     override onWillAppear(ev: WillAppearEvent<JsonObject>): Promise<void> | void {
-        ev.action.setTitle(this.hp35.display.mantissa)
+        ev.action.setTitle(this.hp35.x.mantissa)
     }
 
     update(display: HP35Display) {
