@@ -7,3 +7,4 @@ coverage/
 # Stream Deck files
 *.sdPlugin/bin
 *.sdPlugin/logs
+org.mikeburr.hp35.streamDeckPlugin
