@@ -430,8 +430,8 @@ export class HP35 {
         }
     }
 
-    rotate() {
-        [ this.t, this.z, this.y, this.x ] = [ this.z, this.y, this.x, this.t ]
+    roll() {
+        [ this.t, this.z, this.y, this.x ] = [ this.x, this.t, this.z, this.y ]
 
         this.refreshDisplays()
     }

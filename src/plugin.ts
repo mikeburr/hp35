@@ -2,7 +2,7 @@ import streamDeck from "@elgato/streamdeck";
 import { HP35 } from './hp35'
 import {
     Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Decimal, Pi, CHS, EEX,
-    Enter, SwapXY, Rotate, CLX, CLR,
+    Enter, SwapXY, Roll, CLX, CLR,
     Store, Recall,
     Add, Subtract, Multiply, Divide, Power, Log, Ln, Exp, Root, Arc, Sin, Cos, Tan, Invert,
     Display,
@@ -32,7 +32,7 @@ streamDeck.actions.registerAction(new EEX(hp35))
 
 streamDeck.actions.registerAction(new Enter(hp35))
 streamDeck.actions.registerAction(new SwapXY(hp35))
-streamDeck.actions.registerAction(new Rotate(hp35))
+streamDeck.actions.registerAction(new Roll(hp35))
 streamDeck.actions.registerAction(new CLX(hp35))
 streamDeck.actions.registerAction(new CLR(hp35))
 

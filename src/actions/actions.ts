@@ -11,6 +11,7 @@ function hp35Button(
         }
 
         override async onKeyDown(ev: KeyDownEvent) {
+            streamDeck.logger.debug(`key ${keyDown}: onKeyDown()`)
             return (this.hp35[keyDown] as () => void)()
         }
     }
@@ -23,6 +24,7 @@ function hp35Digit(value: number) {
         }
 
         override async onKeyDown(ev: KeyDownEvent): Promise<void> {
+            streamDeck.logger.debug(`digit ${value}: onKeyDown()`)
             this.hp35.digit(value)
         }
     }
@@ -38,12 +40,21 @@ export class Display extends SingletonAction {
         this.hp35.addDisplayListener(x => this.update(x))
     }
 
+    stringify(d: HP35Display) {
+        const result =
+            (d.sign !== ' ' ? d.sign : '') +
+            d.mantissa +
+            (d.exponent !== '' ? d.exponentSign + d.exponent : '')
+        streamDeck.logger.debug(`display: ${JSON.stringify(d)} => '${result}'`)
+        return result
+    }
+
     override onWillAppear(ev: WillAppearEvent<JsonObject>): Promise<void> | void {
-        ev.action.setTitle(this.hp35.x.mantissa)
+        ev.action.setTitle(this.stringify(this.hp35.x))
     }
 
     update(display: HP35Display) {
-        const me = this.actions.forEach(action => action.setTitle(display.mantissa))
+        const me = this.actions.forEach(action => action.setTitle(this.stringify(display)))
     }
 }
 
@@ -83,8 +94,8 @@ export class Invert extends hp35Button('invert') {}
 @action({ UUID: "org.mikeburr.hp35.swapxy" })
 export class SwapXY extends hp35Button('swapxy') {}
 
-@action({ UUID: "org.mikeburr.hp35.rotate" })
-export class Rotate extends hp35Button('rotate') {}
+@action({ UUID: "org.mikeburr.hp35.roll" })
+export class Roll extends hp35Button('roll') {}
 
 @action({ UUID: "org.mikeburr.hp35.store" })
 export class Store extends hp35Button('store') {}

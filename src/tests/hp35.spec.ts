@@ -8,7 +8,7 @@ function isReallyCloseTo(x: number, y: number): boolean {
 }
 
 const customMatchers = {
-    toHaveDisplay: (hp35: HP35, partialExpected?: Partial<Display>) => {
+    toDisplay: (hp35: HP35, partialExpected?: Partial<Display>) => {
         const expected: Display = Object.assign({
             error: false,
             sign: ' ',
@@ -41,7 +41,7 @@ const customMatchers = {
 }
 
 type HP35Matchers<R = unknown> = {
-    toHaveDisplay: (expected?: Partial<Display>) => R,
+    toDisplay: (expected?: Partial<Display>) => R,
     toHaveStack: (expected: number[]) => R
 }
 
@@ -125,7 +125,7 @@ describe('hp35', () => {
                 (hp35 as any)[op]()
             }
             
-            expect(hp35).toHaveDisplay({ error: true, sign: ' ', mantissa: '0.', exponentSign: ' ', exponent: '' })
+            expect(hp35).toDisplay({ error: true, sign: ' ', mantissa: '0.', exponentSign: ' ', exponent: '' })
         })
 
         it('correctly implements the example on page 8', () => {
@@ -135,7 +135,7 @@ describe('hp35', () => {
             hp35.chs()
             hp35.digit(9)
 
-            expect(hp35).toHaveDisplay({
+            expect(hp35).toDisplay({
                 sign: '-',
                 mantissa: '.0136',
                 exponentSign: '-',
@@ -147,18 +147,18 @@ describe('hp35', () => {
             hp35.digit(4)
             hp35.invert()
 
-            expect(hp35).toHaveDisplay({ mantissa: '.25' })
+            expect(hp35).toDisplay({ mantissa: '.25' })
         })
         
         it('correctly implements the example on page 11 - 2', () => {
             hp35.digits('30')
             hp35.sin()
 
-            expect(hp35).toHaveDisplay({ mantissa: '.5' })
+            expect(hp35).toDisplay({ mantissa: '.5' })
         })
 
         it('correctly implements the example on page 12', () => {
-            expect(hp35).toHaveDisplay()
+            expect(hp35).toDisplay()
 
             hp35.digit(2)
             hp35.enter()
@@ -172,120 +172,120 @@ describe('hp35', () => {
             hp35.digit(5)
             hp35.multiply()
 
-            expect(hp35).toHaveDisplay({ mantissa: '10.21651248' })
+            expect(hp35).toDisplay({ mantissa: '10.21651248' })
         })
 
         it('correctly implements the example on page 17', () => {
-            expect(hp35).toHaveDisplay()
+            expect(hp35).toDisplay()
 
             hp35.digit(2)
-            expect(hp35).toHaveDisplay({ mantissa: '2.' })
+            expect(hp35).toDisplay({ mantissa: '2.' })
             expect(hp35).toHaveStack([ 2 ])
 
             hp35.enter()
-            expect(hp35).toHaveDisplay({ mantissa: '2.' })
+            expect(hp35).toDisplay({ mantissa: '2.' })
             expect(hp35).toHaveStack([ 2, 2 ])
 
             hp35.digit(3)
-            expect(hp35).toHaveDisplay({ mantissa: '3.' })
+            expect(hp35).toDisplay({ mantissa: '3.' })
             expect(hp35).toHaveStack([ 2, 3 ])
 
             hp35.add()
-            expect(hp35).toHaveDisplay({ mantissa: '5.' })
+            expect(hp35).toDisplay({ mantissa: '5.' })
             expect(hp35).toHaveStack([ 0, 5 ])
 
             hp35.digit(4)
-            expect(hp35).toHaveDisplay({ mantissa: '4.' })
+            expect(hp35).toDisplay({ mantissa: '4.' })
             expect(hp35).toHaveStack([ 0, 5, 4 ])
 
             hp35.multiply()
-            expect(hp35).toHaveDisplay({ mantissa: '20.' })
+            expect(hp35).toDisplay({ mantissa: '20.' })
             expect(hp35).toHaveStack([ 0, 20 ])
 
             hp35.digit(5)
-            expect(hp35).toHaveDisplay({ mantissa: '5.' })
+            expect(hp35).toDisplay({ mantissa: '5.' })
             expect(hp35).toHaveStack([ 0, 20, 5 ])
 
             hp35.divide()
-            expect(hp35).toHaveDisplay({ mantissa: '4.' })
+            expect(hp35).toDisplay({ mantissa: '4.' })
             expect(hp35).toHaveStack([ 0, 4 ])
 
             hp35.digits('30')
-            expect(hp35).toHaveDisplay({ mantissa: '30.' })
+            expect(hp35).toDisplay({ mantissa: '30.' })
             expect(hp35).toHaveStack([ 0, 4, 30 ])
 
             hp35.sin()
-            expect(hp35).toHaveDisplay({ mantissa: '.5' })
+            expect(hp35).toDisplay({ mantissa: '.5' })
             expect(hp35).toHaveStack([ 0, 4, .5 ])
 
             hp35.divide()
-            expect(hp35).toHaveDisplay({ mantissa: '8.' })
+            expect(hp35).toDisplay({ mantissa: '8.' })
             expect(hp35).toHaveStack([ 0, 8 ])
 
             hp35.chs()
-            expect(hp35).toHaveDisplay({ sign: '-', mantissa: '8.' })
+            expect(hp35).toDisplay({ sign: '-', mantissa: '8.' })
             expect(hp35).toHaveStack([ 0, -8 ])
 
             hp35.digit(1)
-            expect(hp35).toHaveDisplay({ sign: '-', mantissa: '1.' })
+            expect(hp35).toDisplay({ sign: '-', mantissa: '1.' })
             expect(hp35).toHaveStack([ 0, 8, -1 ])
 
             hp35.decimal()
             hp35.digit(5)
-            expect(hp35).toHaveDisplay({ sign: '-', mantissa: '1.5' })
+            expect(hp35).toDisplay({ sign: '-', mantissa: '1.5' })
             expect(hp35).toHaveStack([ 0, 8, -1.5 ])
 
             hp35.enter()
-            expect(hp35).toHaveDisplay({ sign: '-', mantissa: '1.5' })
+            expect(hp35).toDisplay({ sign: '-', mantissa: '1.5' })
             expect(hp35).toHaveStack([ 0, 8, -1.5, -1.5 ])
 
             hp35.digit(4)
-            expect(hp35).toHaveDisplay({ mantissa: '4.' })
+            expect(hp35).toDisplay({ mantissa: '4.' })
             expect(hp35).toHaveStack([ 0, 8, -1.5, 4 ])
 
             hp35.power()
-            expect(hp35).toHaveDisplay({ mantissa: '.125' })
+            expect(hp35).toDisplay({ mantissa: '.125' })
             expect(hp35).toHaveStack([ 0, 8, .125 ])
 
             hp35.multiply()
-            expect(hp35).toHaveDisplay({ mantissa: '1.' })
+            expect(hp35).toDisplay({ mantissa: '1.' })
             expect(hp35).toHaveStack([ 0, 1 ])
         })
 
         it('correctly implements the example on page 19', () => {
             hp35.digit(1)
-            expect(hp35).toHaveDisplay({ mantissa: '1.' })
+            expect(hp35).toDisplay({ mantissa: '1.' })
 
             hp35.digit(2)
-            expect(hp35).toHaveDisplay({ mantissa: '12.' })
+            expect(hp35).toDisplay({ mantissa: '12.' })
 
             hp35.decimal()
-            expect(hp35).toHaveDisplay({ mantissa: '12.' })
+            expect(hp35).toDisplay({ mantissa: '12.' })
 
             hp35.digit(3)
-            expect(hp35).toHaveDisplay({ mantissa: '12.3' })
+            expect(hp35).toDisplay({ mantissa: '12.3' })
         })
 
         it('correctly implements the example on page 20', () => {
             hp35.digits('55.6')
-            expect(hp35).toHaveDisplay({ mantissa: '55.6', exponent: '' })
+            expect(hp35).toDisplay({ mantissa: '55.6', exponent: '' })
 
             hp35.eex()
-            expect(hp35).toHaveDisplay({ mantissa: '55.6', exponent: '00' })
+            expect(hp35).toDisplay({ mantissa: '55.6', exponent: '00' })
 
             hp35.digits('32')
-            expect(hp35).toHaveDisplay({ mantissa: '55.6', exponent: '32' })
+            expect(hp35).toDisplay({ mantissa: '55.6', exponent: '32' })
 
             hp35.digits('42')
-            expect(hp35).toHaveDisplay({ mantissa: '55.6', exponent: '42' })
+            expect(hp35).toDisplay({ mantissa: '55.6', exponent: '42' })
         })
 
         it('correctly implements the example on page 21-1', () => {
             hp35.eex()
-            expect(hp35).toHaveDisplay({ mantissa: '1.', exponent: '00'})
+            expect(hp35).toDisplay({ mantissa: '1.', exponent: '00'})
 
             hp35.digit(3)
-            expect(hp35).toHaveDisplay({ mantissa: '1.', exponent: '03'})
+            expect(hp35).toDisplay({ mantissa: '1.', exponent: '03'})
         })
 
         // statement that CHS must immediately follow EEX on page 21
@@ -293,61 +293,61 @@ describe('hp35', () => {
 
         it('correctly implements the example on page 21-2', () => {
             hp35.pi()
-            expect(hp35).toHaveDisplay({ mantissa: '3.141592654' })
+            expect(hp35).toDisplay({ mantissa: '3.141592654' })
 
             hp35.chs()
-            expect(hp35).toHaveDisplay({ sign: '-', mantissa: '3.141592654' })
+            expect(hp35).toDisplay({ sign: '-', mantissa: '3.141592654' })
 
             hp35.digit(5)
-            expect(hp35).toHaveDisplay({ sign: '-', mantissa: '5.' })
+            expect(hp35).toDisplay({ sign: '-', mantissa: '5.' })
 
             expect(hp35).toHaveStack([ 3.141592654, -5 ])
         })
 
         it('correctly implements the example on page 23', () => {
             hp35.digit(2)
-            expect(hp35).toHaveDisplay({ mantissa: '2.' })
+            expect(hp35).toDisplay({ mantissa: '2.' })
             
             hp35.enter()
-            expect(hp35).toHaveDisplay({ mantissa: '2.' })
+            expect(hp35).toDisplay({ mantissa: '2.' })
 
             hp35.digit(7)
-            expect(hp35).toHaveDisplay({ mantissa: '7.' })
+            expect(hp35).toDisplay({ mantissa: '7.' })
 
             hp35.swapxy()
-            expect(hp35).toHaveDisplay({ mantissa: '2.' })
+            expect(hp35).toDisplay({ mantissa: '2.' })
 
             hp35.power()
-            expect(hp35).toHaveDisplay({ mantissa: '128.' })
+            expect(hp35).toDisplay({ mantissa: '128.' })
             expect(hp35).toHaveStack([ 128 ])
         })
 
         it('correctly implements the example on page 24', () => {
             hp35.digit(3)
-            expect(hp35).toHaveDisplay({ mantissa: '3.' })
+            expect(hp35).toDisplay({ mantissa: '3.' })
             
             hp35.enter()
-            expect(hp35).toHaveDisplay({ mantissa: '3.' })
+            expect(hp35).toDisplay({ mantissa: '3.' })
 
             hp35.digit(5)
-            expect(hp35).toHaveDisplay({ mantissa: '5.' })
+            expect(hp35).toDisplay({ mantissa: '5.' })
 
             hp35.add()
-            expect(hp35).toHaveDisplay({ mantissa: '8.' })
+            expect(hp35).toDisplay({ mantissa: '8.' })
         })
 
         it('correctly implements the example on page 25-1', () => {
             hp35.digit(3)
-            expect(hp35).toHaveDisplay({ mantissa: '3.' })
+            expect(hp35).toDisplay({ mantissa: '3.' })
             
             hp35.enter()
-            expect(hp35).toHaveDisplay({ mantissa: '3.' })
+            expect(hp35).toDisplay({ mantissa: '3.' })
 
             hp35.digits('2.999')
-            expect(hp35).toHaveDisplay({ mantissa: '2.999' })
+            expect(hp35).toDisplay({ mantissa: '2.999' })
 
             hp35.subtract()
-            expect(hp35).toHaveDisplay({
+            expect(hp35).toDisplay({
                 mantissa: '1.',
                 exponentSign: '-',
                 exponent: '03',
@@ -356,109 +356,109 @@ describe('hp35', () => {
 
         it('correctly implements the example on page 25-2', () => {
             hp35.digit(3)
-            expect(hp35).toHaveDisplay({ mantissa: '3.' })
+            expect(hp35).toDisplay({ mantissa: '3.' })
             
             hp35.enter()
-            expect(hp35).toHaveDisplay({ mantissa: '3.' })
+            expect(hp35).toDisplay({ mantissa: '3.' })
             expect(hp35).toHaveStack([ 3, 3 ])
 
             hp35.digit(4)
-            expect(hp35).toHaveDisplay({ mantissa: '4.' })
+            expect(hp35).toDisplay({ mantissa: '4.' })
 
             hp35.multiply()
-            expect(hp35).toHaveDisplay({ mantissa: '12.' })
+            expect(hp35).toDisplay({ mantissa: '12.' })
 
             hp35.digit(8)
-            expect(hp35).toHaveDisplay({ mantissa: '8.' })
+            expect(hp35).toDisplay({ mantissa: '8.' })
             expect(hp35).toHaveStack([ 12, 8 ])
 
             hp35.enter()
-            expect(hp35).toHaveDisplay({ mantissa: '8.' })
+            expect(hp35).toDisplay({ mantissa: '8.' })
             expect(hp35).toHaveStack([ 12, 8, 8 ])
 
             hp35.digit(4)
-            expect(hp35).toHaveDisplay({ mantissa: '4.' })
+            expect(hp35).toDisplay({ mantissa: '4.' })
 
             hp35.divide()
-            expect(hp35).toHaveDisplay({ mantissa: '2.' })
+            expect(hp35).toDisplay({ mantissa: '2.' })
             expect(hp35).toHaveStack([ 12, 2 ])
 
             hp35.add()
-            expect(hp35).toHaveDisplay({ mantissa: '14.' })
+            expect(hp35).toDisplay({ mantissa: '14.' })
         })
 
         it('correctly implements the example on page 27-1', () => {
             hp35.digit(3)
-            expect(hp35).toHaveDisplay({ mantissa: '3.' })
+            expect(hp35).toDisplay({ mantissa: '3.' })
             
             hp35.enter()
-            expect(hp35).toHaveDisplay({ mantissa: '3.' })
+            expect(hp35).toDisplay({ mantissa: '3.' })
 
             hp35.digit(5)
-            expect(hp35).toHaveDisplay({ mantissa: '5.' })
+            expect(hp35).toDisplay({ mantissa: '5.' })
 
             hp35.power()
             // manual shows 124.9999998
-            expect(hp35).toHaveDisplay({ mantissa: '125.' })
+            expect(hp35).toDisplay({ mantissa: '125.' })
         })
 
         it('correctly implements the example on page 27-2', () => {
             hp35.digit(2)
-            expect(hp35).toHaveDisplay({ mantissa: '2.' })
+            expect(hp35).toDisplay({ mantissa: '2.' })
             
             hp35.invert()
-            expect(hp35).toHaveDisplay({ mantissa: '.5' })
+            expect(hp35).toDisplay({ mantissa: '.5' })
         })
 
         it('correctly implements the example on page 28', () => {
             hp35.digit(3)
             hp35.digit(0)
-            expect(hp35).toHaveDisplay({ mantissa: '30.' })
+            expect(hp35).toDisplay({ mantissa: '30.' })
             
             hp35.sin()
-            expect(hp35).toHaveDisplay({ mantissa: '.5' })
+            expect(hp35).toDisplay({ mantissa: '.5' })
         })
 
         it('correctly implements the example on page 29', () => {
             hp35.decimal()
             hp35.digit(5)
-            expect(hp35).toHaveDisplay({ mantissa: '.5' })
+            expect(hp35).toDisplay({ mantissa: '.5' })
             
             hp35.chs()
-            expect(hp35).toHaveDisplay({ sign: '-', mantissa: '.5' })
+            expect(hp35).toDisplay({ sign: '-', mantissa: '.5' })
 
             hp35.arc()
-            expect(hp35).toHaveDisplay({ sign: '-', mantissa: '.5' })
+            expect(hp35).toDisplay({ sign: '-', mantissa: '.5' })
 
             hp35.sin()
             // manual shows -30.00000001
-            expect(hp35).toHaveDisplay({ sign: '-', mantissa: '30.' })
+            expect(hp35).toDisplay({ sign: '-', mantissa: '30.' })
         })
 
         it('correctly implements the example on page 30', () => {
             hp35.digits('2.54')
-            expect(hp35).toHaveDisplay({ mantissa: '2.54' })
+            expect(hp35).toDisplay({ mantissa: '2.54' })
 
             hp35.store()
-            expect(hp35).toHaveDisplay({ mantissa: '2.54' })
+            expect(hp35).toDisplay({ mantissa: '2.54' })
 
             hp35.digits('10')
-            expect(hp35).toHaveDisplay({ mantissa: '10.' })
+            expect(hp35).toDisplay({ mantissa: '10.' })
 
             hp35.recall()
-            expect(hp35).toHaveDisplay({ mantissa: '2.54' })
+            expect(hp35).toDisplay({ mantissa: '2.54' })
 
             hp35.multiply()
-            expect(hp35).toHaveDisplay({ mantissa: '25.4' })
+            expect(hp35).toDisplay({ mantissa: '25.4' })
 
             hp35.digits('20')
-            expect(hp35).toHaveDisplay({ mantissa: '20.' })
+            expect(hp35).toDisplay({ mantissa: '20.' })
 
             hp35.recall()
-            expect(hp35).toHaveDisplay({ mantissa: '2.54' })
+            expect(hp35).toDisplay({ mantissa: '2.54' })
 
             hp35.multiply()
-            expect(hp35).toHaveDisplay({ mantissa: '50.8' })
+            expect(hp35).toDisplay({ mantissa: '50.8' })
         })
 
         it('correctly solves sample problem 1', () => {
@@ -478,7 +478,7 @@ describe('hp35', () => {
             hp35.multiply()
             hp35.add()
 
-            expect(hp35).toHaveDisplay({ mantissa: '98.' })
+            expect(hp35).toDisplay({ mantissa: '98.' })
         })
 
         it('correctly solves sample problem 2', () => {
@@ -498,7 +498,7 @@ describe('hp35', () => {
             hp35.add()
             hp35.multiply()
 
-            expect(hp35).toHaveDisplay({ mantissa: '1155.' })
+            expect(hp35).toDisplay({ mantissa: '1155.' })
         })
 
         it('correctly solves sample problem 3', () => {
@@ -533,7 +533,7 @@ describe('hp35', () => {
             hp35.add()
             hp35.multiply()
 
-            expect(hp35).toHaveDisplay({ mantissa: '60.' })
+            expect(hp35).toDisplay({ mantissa: '60.' })
         })
 
         it('correctly solves sample problem 4', () => {
@@ -544,7 +544,7 @@ describe('hp35', () => {
             hp35.add()
             hp35.invert()
 
-            expect(hp35).toHaveDisplay({ mantissa: '2.' })
+            expect(hp35).toDisplay({ mantissa: '2.' })
         })
 
         it('correctly solves sample problem 5', () => {
@@ -563,7 +563,7 @@ describe('hp35', () => {
             hp35.digit(3)
             hp35.add()
 
-            expect(hp35).toHaveDisplay({ mantissa: '3.141592653' })
+            expect(hp35).toDisplay({ mantissa: '3.141592653' })
         })
 
         it('correctly solves sample problem 6', () => {
@@ -589,7 +589,7 @@ describe('hp35', () => {
             hp35.multiply()
 
             // manual shows 6949.392474
-            expect(hp35).toHaveDisplay({ mantissa: '6949.392468' })
+            expect(hp35).toDisplay({ mantissa: '6949.392468' })
         })
 
         it('correctly solves sample problem 7', () => {
@@ -603,11 +603,11 @@ describe('hp35', () => {
             hp35.multiply()
 
             // manual shows 4.33012702
-            expect(hp35).toHaveDisplay({ mantissa: '4.330127019' })
+            expect(hp35).toDisplay({ mantissa: '4.330127019' })
 
             hp35.multiply()
 
-            expect(hp35).toHaveDisplay({ mantissa: '2.5' })
+            expect(hp35).toDisplay({ mantissa: '2.5' })
 
             hp35.digit(3)
             hp35.enter()
@@ -619,13 +619,13 @@ describe('hp35', () => {
             hp35.tan()
 
             // manual shows 36.86989764
-            expect(hp35).toHaveDisplay({ mantissa: '36.86989765' })
+            expect(hp35).toDisplay({ mantissa: '36.86989765' })
 
             hp35.sin()
             hp35.divide()
 
             // manual shows 5.0000000003 (sic - too many digits)
-            expect(hp35).toHaveDisplay({ mantissa: '4.999999999' })
+            expect(hp35).toDisplay({ mantissa: '4.999999999' })
         })
 
         it.each([
@@ -648,7 +648,7 @@ describe('hp35', () => {
             hp35.recall()
             hp35.multiply()
 
-            expect(hp35).toHaveDisplay({ mantissa: cm })
+            expect(hp35).toDisplay({ mantissa: cm })
         })
 
         it('correctly solves sample problem 9', () => {
@@ -674,7 +674,7 @@ describe('hp35', () => {
             hp35.multiply()
 
             // manual shows 16.96710808
-            expect(hp35).toHaveDisplay({ mantissa: '16.96710806' })
+            expect(hp35).toDisplay({ mantissa: '16.96710806' })
         })
     })
 
@@ -699,13 +699,13 @@ describe('hp35', () => {
         describe('chs', () => {
             it('toggles the sign on exponents', () => {
                 hp35.eex()
-                expect(hp35).toHaveDisplay({ mantissa: '1.', exponentSign: ' ', exponent: '00' })
+                expect(hp35).toDisplay({ mantissa: '1.', exponentSign: ' ', exponent: '00' })
 
                 hp35.chs()
-                expect(hp35).toHaveDisplay({ mantissa: '1.', exponentSign: '-', exponent: '00' })
+                expect(hp35).toDisplay({ mantissa: '1.', exponentSign: '-', exponent: '00' })
 
                 hp35.chs()
-                expect(hp35).toHaveDisplay({ mantissa: '1.', exponentSign: ' ', exponent: '00' })
+                expect(hp35).toDisplay({ mantissa: '1.', exponentSign: ' ', exponent: '00' })
             })
         })
 
@@ -715,16 +715,16 @@ describe('hp35', () => {
                 hp35.invert()
                 hp35.decimal()
 
-                expect(hp35).toHaveDisplay({ mantissa: '.' })
+                expect(hp35).toDisplay({ mantissa: '.' })
                 expect(hp35).toHaveStack([ 0.5, 0 ])
             })
 
             it('is ignored when the mantissa already has 10 digits', () => {
                 hp35.digits('1234567890')
-                expect(hp35).toHaveDisplay({ mantissa: '1234567890.' })
+                expect(hp35).toDisplay({ mantissa: '1234567890.' })
 
                 hp35.decimal()
-                expect(hp35).toHaveDisplay({ mantissa: '1234567890.' })
+                expect(hp35).toDisplay({ mantissa: '1234567890.' })
             })
         })
 
@@ -737,18 +737,18 @@ describe('hp35', () => {
 
             it('ignores attempts to create an integer more than beyond 10 digits', () => {
                 hp35.digits('1234567890')
-                expect(hp35).toHaveDisplay({ mantissa: '1234567890.' })
+                expect(hp35).toDisplay({ mantissa: '1234567890.' })
 
                 hp35.digit(1)
-                expect(hp35).toHaveDisplay({ mantissa: '1234567890.' })
+                expect(hp35).toDisplay({ mantissa: '1234567890.' })
             })
 
             it('ignores attempts to create a fraction that would exceed 10 digits total', () => {
                 hp35.digits('1234.567890')
-                expect(hp35).toHaveDisplay({ mantissa: '1234.567890' })
+                expect(hp35).toDisplay({ mantissa: '1234.567890' })
 
                 hp35.digit(1)
-                expect(hp35).toHaveDisplay({ mantissa: '1234.567890' })
+                expect(hp35).toDisplay({ mantissa: '1234.567890' })
             })
         })
 
@@ -758,7 +758,7 @@ describe('hp35', () => {
                 hp35.invert()
                 hp35.eex()
 
-                expect(hp35).toHaveDisplay({ mantissa: '1.', exponent: '00' })
+                expect(hp35).toDisplay({ mantissa: '1.', exponent: '00' })
                 expect(hp35).toHaveStack([ 0.5, 1 ])
             })
         })
@@ -795,27 +795,27 @@ describe('hp35', () => {
 
                 // both pending arc and pending chs set at this point
 
-                expect(hp35).toHaveDisplay({ sign: '-', mantissa: '3.' })
+                expect(hp35).toDisplay({ sign: '-', mantissa: '3.' })
                 expect(hp35).toHaveStack([ 1, 2, 3, -3 ])
 
                 hp35.clr()
 
                 // t, z, y, x cleared
-                expect(hp35).toHaveDisplay({ mantissa: '0.' })
+                expect(hp35).toDisplay({ mantissa: '0.' })
                 expect(hp35).toHaveStack([ 0, 0, 0, 0 ])
 
                 // pending arc is cleared
                 hp35.cos()
                 // arc cos would be 90
-                expect(hp35).toHaveDisplay({ mantissa: '1.' })
+                expect(hp35).toDisplay({ mantissa: '1.' })
 
                 // pending chs is cleared
                 hp35.digit(4)
-                expect(hp35).toHaveDisplay({ sign: ' ', mantissa: '4.' })
+                expect(hp35).toDisplay({ sign: ' ', mantissa: '4.' })
 
                 // storage is cleared
                 hp35.recall()
-                expect(hp35).toHaveDisplay({ mantissa: '0.' })
+                expect(hp35).toDisplay({ mantissa: '0.' })
             })
         })
 
@@ -833,31 +833,31 @@ describe('hp35', () => {
 
                 // both pending arc and pending chs set at this point
 
-                expect(hp35).toHaveDisplay({ sign: '-', mantissa: '3.' })
+                expect(hp35).toDisplay({ sign: '-', mantissa: '3.' })
                 expect(hp35).toHaveStack([ 1, 2, 3, -3 ])
 
                 hp35.clx()
 
                 // x cleared; t, z, y remain
-                expect(hp35).toHaveDisplay({ mantissa: '0.' })
+                expect(hp35).toDisplay({ mantissa: '0.' })
                 expect(hp35).toHaveStack([ 1, 2, 3, 0 ])
 
                 // pending arc is cleared
                 hp35.cos()
                 // arc cos would be 90
-                expect(hp35).toHaveDisplay({ mantissa: '1.' })
+                expect(hp35).toDisplay({ mantissa: '1.' })
 
                 // pending chs is cleared
                 hp35.digit(4)
-                expect(hp35).toHaveDisplay({ sign: ' ', mantissa: '4.' })
+                expect(hp35).toDisplay({ sign: ' ', mantissa: '4.' })
 
                 // storage is not cleared
                 hp35.recall()
-                expect(hp35).toHaveDisplay({ mantissa: '2.' })
+                expect(hp35).toDisplay({ mantissa: '2.' })
             })
         })
 
-        describe('rotate', () => {
+        describe('roll', () => {
             it('preserves stack contents', () => {
                 hp35.digit(1)
                 hp35.enter()
@@ -869,18 +869,18 @@ describe('hp35', () => {
 
                 expect(hp35).toHaveStack([ 1, 2, 3, 4])
 
-                hp35.rotate()
-                expect(hp35).toHaveStack([ 2, 3, 4, 1])
-                expect(hp35).toHaveDisplay({ mantissa: '1.' })
-
-                hp35.rotate()
-                hp35.rotate()
+                hp35.roll()
                 expect(hp35).toHaveStack([ 4, 1, 2, 3])
-                expect(hp35).toHaveDisplay({ mantissa: '3.' })
+                expect(hp35).toDisplay({ mantissa: '3.' })
 
-                hp35.rotate()
+                hp35.roll()
+                hp35.roll()
+                expect(hp35).toHaveStack([ 2, 3, 4, 1])
+                expect(hp35).toDisplay({ mantissa: '1.' })
+
+                hp35.roll()
                 expect(hp35).toHaveStack([ 1, 2, 3, 4])
-                expect(hp35).toHaveDisplay({ mantissa: '4.' })
+                expect(hp35).toDisplay({ mantissa: '4.' })
             })
         })
 
@@ -889,7 +889,7 @@ describe('hp35', () => {
                 hp35.digits('4')
                 hp35.exp()
 
-                expect(hp35).toHaveDisplay({ mantissa: '54.59815003'})
+                expect(hp35).toDisplay({ mantissa: '54.59815003'})
             })
         })
 
@@ -898,7 +898,7 @@ describe('hp35', () => {
                 hp35.digits('1234')
                 hp35.log()
 
-                expect(hp35).toHaveDisplay({ mantissa: '3.09131516'})
+                expect(hp35).toDisplay({ mantissa: '3.09131516'})
             })
         })
 
@@ -907,7 +907,7 @@ describe('hp35', () => {
                 hp35.digits('2')
                 hp35.root()
 
-                expect(hp35).toHaveDisplay({ mantissa: '1.414213562'})
+                expect(hp35).toDisplay({ mantissa: '1.414213562'})
             })
         })
     })

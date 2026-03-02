@@ -6,15 +6,13 @@
 		{
 			"Name": "Display",
 			"UUID": "org.mikeburr.hp35.display",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "Calculator display",
+			"Icon": "images/actions/keys/display",
+			"Tooltip": "calculator display",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"TitleAlignment": "middle"
 				}
 			]
 		},
@@ -23,80 +21,70 @@
 		{
 			"Name": "power",
 			"UUID": "org.mikeburr.hp35.power",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "x raised to the y power",
+			"Icon": "images/actions/keys/power",
+			"Tooltip": "calculator x raised to the y power key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "𝑿ʸ",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/power"
 				}
 			]
 		},
 		{
 			"Name": "log",
 			"UUID": "org.mikeburr.hp35.log",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "logarithm base 10",
+			"Icon": "images/actions/keys/log",
+			"Tooltip": "calculator logarithm base 10 key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "log",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/log"
 				}
 			]
 		},
 		{
 			"Name": "ln",
 			"UUID": "org.mikeburr.hp35.ln",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "natural logarithm",
+			"Icon": "images/actions/keys/ln",
+			"Tooltip": "calculator natural logarithm key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "ln",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/ln"
 				}
 			]
 		},
 		{
 			"Name": "exp",
 			"UUID": "org.mikeburr.hp35.exp",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "e raised to the x power",
+			"Icon": "images/actions/keys/exp",
+			"Tooltip": "calculator e raised to the x power key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "ℯˣ",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/exp"
 				}
 			]
 		},
 		{
 			"Name": "clr",
 			"UUID": "org.mikeburr.hp35.clr",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "clears all registers",
+			"Icon": "images/actions/keys/clr",
+			"Tooltip": "calculator clear all registers key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "CLR",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/clr"
 				}
 			]
 		},
@@ -105,80 +93,70 @@
 		{
 			"Name": "root",
 			"UUID": "org.mikeburr.hp35.root",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "square root",
+			"Icon": "images/actions/keys/root",
+			"Tooltip": "calculator square root key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "√𝑿",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/root"
 				}
 			]
 		},
 		{
 			"Name": "arc",
 			"UUID": "org.mikeburr.hp35.arc",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "prefix key for arc triginometric functions",
+			"Icon": "images/actions/keys/arc",
+			"Tooltip": "calculator arc prefix key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "arc",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/arc"
 				}
 			]
 		},
 		{
 			"Name": "sin",
 			"UUID": "org.mikeburr.hp35.sin",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "sine",
+			"Icon": "images/actions/keys/sin",
+			"Tooltip": "calculator sin key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "sin",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/sin"
 				}
 			]
 		},
 		{
 			"Name": "cos",
 			"UUID": "org.mikeburr.hp35.cos",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "cosine",
+			"Icon": "images/actions/keys/cos",
+			"Tooltip": "calculator cos key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "cos",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/cos"
 				}
 			]
 		},
 		{
 			"Name": "tan",
 			"UUID": "org.mikeburr.hp35.tan",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "tangent",
+			"Icon": "images/actions/keys/tan",
+			"Tooltip": "calculator tan key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "tan",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/tan"
 				}
 			]
 		},
@@ -187,80 +165,70 @@
 		{
 			"Name": "invert",
 			"UUID": "org.mikeburr.hp35.invert",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "invert",
+			"Icon": "images/actions/keys/invert",
+			"Tooltip": "calculator 1/x key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "1/𝑿",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/invert"
 				}
 			]
 		},
 		{
 			"Name": "swapxy",
 			"UUID": "org.mikeburr.hp35.swapxy",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "swap x and y",
+			"Icon": "images/actions/keys/swapxy",
+			"Tooltip": "calculator swap x and y key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "𝑥⇆𝑦",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/swapxy"
 				}
 			]
 		},
 		{
-			"Name": "rotate",
-			"UUID": "org.mikeburr.hp35.rotate",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "rotates registers",
+			"Name": "roll",
+			"UUID": "org.mikeburr.hp35.roll",
+			"Icon": "images/actions/keys/roll",
+			"Tooltip": "calculator roll registers key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "R↓",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/roll"
 				}
 			]
 		},
 		{
 			"Name": "store",
 			"UUID": "org.mikeburr.hp35.store",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "store",
+			"Icon": "images/actions/keys/store",
+			"Tooltip": "calculator store key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "STO",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/store"
 				}
 			]
 		},
 		{
 			"Name": "recall",
 			"UUID": "org.mikeburr.hp35.recall",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "recall",
+			"Icon": "images/actions/keys/recall",
+			"Tooltip": "calculator recall key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "RCL",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/recall"
 				}
 			]
 		},
@@ -269,64 +237,56 @@
 		{
 			"Name": "enter",
 			"UUID": "org.mikeburr.hp35.enter",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "enter",
+			"Icon": "images/actions/keys/enter",
+			"Tooltip": "calculator enter key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "ENTER↑",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/enter"
 				}
 			]
 		},
 		{
 			"Name": "chs",
 			"UUID": "org.mikeburr.hp35.chs",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "change sign",
+			"Icon": "images/actions/keys/chs",
+			"Tooltip": "calculator change sign key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "CHS",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/chs"
 				}
 			]
 		},
 		{
 			"Name": "eex",
 			"UUID": "org.mikeburr.hp35.eex",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "enter exponent",
+			"Icon": "images/actions/keys/eex",
+			"Tooltip": "calculator enter exponent key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "EEX",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/eex"
 				}
 			]
 		},
 		{
 			"Name": "clx",
 			"UUID": "org.mikeburr.hp35.clx",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "clear X",
+			"Icon": "images/actions/keys/clx",
+			"Tooltip": "calculator clear X key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "CL𝑋",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/clx"
 				}
 			]
 		},
@@ -335,64 +295,56 @@
 		{
 			"Name": "subtract",
 			"UUID": "org.mikeburr.hp35.subtract",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "subtract",
+			"Icon": "images/actions/keys/subtract",
+			"Tooltip": "calculator subtract key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "-",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/subtract"
 				}
 			]
 		},
 		{
 			"Name": "7",
 			"UUID": "org.mikeburr.hp35.7",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "7",
+			"Icon": "images/actions/keys/seven",
+			"Tooltip": "calculator 7 key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "7",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/seven"
 				}
 			]
 		},
 		{
 			"Name": "8",
 			"UUID": "org.mikeburr.hp35.8",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "8",
+			"Icon": "images/actions/keys/eight",
+			"Tooltip": "calculator 8 key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "8",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/eight"
 				}
 			]
 		},
 		{
 			"Name": "9",
 			"UUID": "org.mikeburr.hp35.9",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "9",
+			"Icon": "images/actions/keys/nine",
+			"Tooltip": "calculator 9 key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "9",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/nine"
 				}
 			]
 		},
@@ -401,64 +353,56 @@
 		{
 			"Name": "add",
 			"UUID": "org.mikeburr.hp35.add",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "add",
+			"Icon": "images/actions/keys/add",
+			"Tooltip": "calculator add key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "+",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/add"
 				}
 			]
 		},
 		{
 			"Name": "4",
 			"UUID": "org.mikeburr.hp35.4",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "4",
+			"Icon": "images/actions/keys/four",
+			"Tooltip": "calculator 4 key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "4",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/four"
 				}
 			]
 		},
 		{
 			"Name": "5",
 			"UUID": "org.mikeburr.hp35.5",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "5",
+			"Icon": "images/actions/keys/five",
+			"Tooltip": "calculator 5 key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "5",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/five"
 				}
 			]
 		},
 		{
 			"Name": "6",
 			"UUID": "org.mikeburr.hp35.6",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "6",
+			"Icon": "images/actions/keys/six",
+			"Tooltip": "calculator 6 key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "6",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/six"
 				}
 			]
 		},
@@ -467,64 +411,56 @@
 		{
 			"Name": "multiply",
 			"UUID": "org.mikeburr.hp35.multiply",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "multiply",
+			"Icon": "images/actions/keys/multiply",
+			"Tooltip": "calculator multiply key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "×",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/multiply"
 				}
 			]
 		},
 		{
 			"Name": "1",
 			"UUID": "org.mikeburr.hp35.1",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "1",
+			"Icon": "images/actions/keys/one",
+			"Tooltip": "calculator 1 key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "1",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/one"
 				}
 			]
 		},
 		{
 			"Name": "2",
 			"UUID": "org.mikeburr.hp35.2",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "2",
+			"Icon": "images/actions/keys/two",
+			"Tooltip": "calculator 2 key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "2",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/two"
 				}
 			]
 		},
 		{
 			"Name": "3",
 			"UUID": "org.mikeburr.hp35.3",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "3",
+			"Icon": "images/actions/keys/three",
+			"Tooltip": "calculator 3 key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "3",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/three"
 				}
 			]
 		},
@@ -533,73 +469,65 @@
 		{
 			"Name": "divide",
 			"UUID": "org.mikeburr.hp35.divide",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "divide",
+			"Icon": "images/actions/keys/divide",
+			"Tooltip": "calculator divide key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "÷",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/divide"
 				}
 			]
 		},
 		{
 			"Name": "0",
 			"UUID": "org.mikeburr.hp35.0",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "0",
+			"Icon": "images/actions/keys/zero",
+			"Tooltip": "calculator 0 key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "0",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/zero"
 				}
 			]
 		},
 		{
 			"Name": "decimal",
 			"UUID": "org.mikeburr.hp35.decimal",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "decimal point",
+			"Icon": "images/actions/keys/decimal",
+			"Tooltip": "calculator decimal point",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": ".",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/decimal"
 				}
 			]
 		},
 		{
 			"Name": "pi",
 			"UUID": "org.mikeburr.hp35.pi",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "pi",
+			"Icon": "images/actions/keys/pi",
+			"Tooltip": "calculator pi key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/counter/key",
-					"Title": "π",
-					"TitleAlignment": "middle"
+					"Image": "images/actions/keys/pi"
 				}
 			]
 		}
 	],
 	"Category": "HP35",
-	"CategoryIcon": "imgs/plugin/category-icon",
+	"CategoryIcon": "images/plugin/category-icon",
 	"CodePath": "bin/plugin.js",
 	"Description": "HP35 emulator",
-	"Icon": "imgs/plugin/marketplace",
+	"Icon": "images/plugin/marketplace",
 	"SDKVersion": 3,
 	"Software": {
 		"MinimumVersion": "6.9"
