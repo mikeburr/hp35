@@ -1,0 +1,22 @@
+Pixel offsets for 144x144 keys:
+
+ 313  xʸ   log  ln   eˣ   CLR
+ 450  √x   arc  sin  cos  tan
+ 590  1/x  x⇆y  R↓   STO  RCL
+ 727            CHS  EEX  CLx
+      155  300  446  592  739
+
+ 885   -    7    8    9
+1017   +    4    5    6
+1148   x    1    2    3
+1277   ÷    0    .    π
+      146  313  515  716
+
+
+Pixel offsets for other images:
+
+  29  1234    (120x120)
+       241
+
+ 690  ENTER↑  (250x250)
+       172
