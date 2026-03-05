@@ -388,6 +388,7 @@ export class HP35 {
             case States.REPLACE:
                 this.x = PI()
                 this.state = States.RAISE
+                this.refreshDisplays()
                 break
         }
     }

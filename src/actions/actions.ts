@@ -18,7 +18,7 @@ function hp35Button(
         }
 
         override async onKeyDown(ev: KeyDownEvent) {
-            streamDeck.logger.debug(`key ${keyDown}: onKeyDown()`)
+            streamDeck.logger.info(`key ${keyDown}: onKeyDown()`)
             return (this.hp35[keyDown] as () => void)()
         }
     }
@@ -31,7 +31,7 @@ function hp35Digit(value: number) {
         }
 
         override async onKeyDown(ev: KeyDownEvent): Promise<void> {
-            streamDeck.logger.debug(`digit ${value}: onKeyDown()`)
+            streamDeck.logger.info(`digit ${value}: onKeyDown()`)
             this.hp35.digit(value)
         }
     }
