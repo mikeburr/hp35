@@ -87,6 +87,10 @@ const Characters = {
  */
 @action({ UUID: "org.mikeburr.hp35.display" })
 export class Display extends SingletonAction {
+    // state information to flash the display on error
+    flashInterval?: ReturnType<typeof setInterval>
+    showBlanks = false
+
     constructor(private hp35: HP35) {
         super()
         this.hp35.addDisplayListener(x => this.update(x))
@@ -110,15 +114,35 @@ export class Display extends SingletonAction {
 		return `data:image/svg+xml;charset=utf8,${encodeURIComponent(svg)}`
     }
 
-    // TODO - handle error states
-
     override onWillAppear(ev: WillAppearEvent<JsonObject>): Promise<void> | void {
         ev.action.setTitle('')
         setTimeout(() => this.update({ error: false, sign: ' ', mantissa: '0.', exponentSign: ' ', exponent: '' }), 100)
     }
 
-    update(display: HP35Display) {
-        const s = display.sign + display.mantissa.padEnd(11) + display.exponentSign + display.exponent.padEnd(2)
+    update(display: HP35Display, redisplay = false) {
+        let s = display.sign + display.mantissa.padEnd(11) + display.exponentSign + display.exponent.padEnd(2)
+
+        // skip flashing setup if this is a call from setInterval
+        if (! redisplay) {
+            // stop any ongoing flashing
+            if (this.flashInterval) {
+                clearInterval(this.flashInterval)
+                this.flashInterval = undefined
+                this.showBlanks = false
+            }
+
+            // if new display is an error, start flashing
+            if (display.error) {
+                this.flashInterval = setInterval(() => {
+                    this.showBlanks = ! this.showBlanks
+                    this.update(display, true)
+                }, 500)
+            }
+        }
+
+        if (this.showBlanks) {
+            s = '               '
+        }
 
         const actions = Array.from(this.actions).filter(a => a.coordinates).sort((a1, a2) =>
             Math.sign((a1.coordinates!.row * 100 + a1.coordinates!.column) -
