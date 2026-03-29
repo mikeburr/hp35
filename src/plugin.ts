@@ -4,17 +4,17 @@ import {
     Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Decimal, Pi, CHS, EEX,
     Enter, SwapXY, Roll, CLX, CLR,
     Store, Recall,
-    Add, Subtract, Multiply, Divide, XtoY, Log, Ln, Exp, Root, Arc, Sin, Cos, Tan, Invert,
+    Add, Subtract, Multiply, Divide,
+    Invert, XtoY, Log, Ln, Exp, Root,
+    Arc, Sin, Cos, Tan,
 } from './actions/actions'
 import { Display } from "./actions/display"
 
-// import { IncrementCounter } from "./actions/increment-counter";
-
-// We can enable "trace" logging so that all messages between the Stream Deck, and the plugin are recorded. When storing sensitive information
 const logger = streamDeck.logger.setLevel("trace");
 
 const hp35 = new HP35()
 
+// numeric entry actions
 streamDeck.actions.registerAction(new Zero(hp35))
 streamDeck.actions.registerAction(new One(hp35))
 streamDeck.actions.registerAction(new Two(hp35))
@@ -30,37 +30,40 @@ streamDeck.actions.registerAction(new Pi(hp35))
 streamDeck.actions.registerAction(new CHS(hp35))
 streamDeck.actions.registerAction(new EEX(hp35))
 
+// stack operation actions
 streamDeck.actions.registerAction(new Enter(hp35))
 streamDeck.actions.registerAction(new SwapXY(hp35))
 streamDeck.actions.registerAction(new Roll(hp35))
 streamDeck.actions.registerAction(new CLX(hp35))
 streamDeck.actions.registerAction(new CLR(hp35))
 
+// memory actions
 streamDeck.actions.registerAction(new Store(hp35))
 streamDeck.actions.registerAction(new Recall(hp35))
 
+// arithmetic operation actions
 streamDeck.actions.registerAction(new Add(hp35))
 streamDeck.actions.registerAction(new Subtract(hp35))
 streamDeck.actions.registerAction(new Multiply(hp35))
 streamDeck.actions.registerAction(new Divide(hp35))
+
+// algebraic operation actions
+streamDeck.actions.registerAction(new Invert(hp35))
 streamDeck.actions.registerAction(new XtoY(hp35))
 streamDeck.actions.registerAction(new Log(hp35))
 streamDeck.actions.registerAction(new Ln(hp35))
 streamDeck.actions.registerAction(new Exp(hp35))
-
 streamDeck.actions.registerAction(new Root(hp35))
+
+// triginometric operation actions
 streamDeck.actions.registerAction(new Arc(hp35))
 streamDeck.actions.registerAction(new Sin(hp35))
 streamDeck.actions.registerAction(new Cos(hp35))
 streamDeck.actions.registerAction(new Tan(hp35))
-streamDeck.actions.registerAction(new Invert(hp35))
 
+// non-mathematical actions
 streamDeck.actions.registerAction(new Display(hp35))
 
-// Register the increment action.
-// streamDeck.actions.registerAction(new IncrementCounter());
-
-// Finally, connect to the Stream Deck.
 streamDeck.connect();
 
 logger.info('org.mikeburr.hp35 plugin initialized')
