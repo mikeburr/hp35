@@ -5,8 +5,8 @@ import {
     Enter, SwapXY, Roll, CLX, CLR,
     Store, Recall,
     Add, Subtract, Multiply, Divide, XtoY, Log, Ln, Exp, Root, Arc, Sin, Cos, Tan, Invert,
-    Display,
 } from './actions/actions'
+import { Display } from "./actions/display"
 
 // import { IncrementCounter } from "./actions/increment-counter";
 
