@@ -4,7 +4,7 @@ import {
     Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Decimal, Pi, CHS, EEX,
     Enter, SwapXY, Roll, CLX, CLR,
     Store, Recall,
-    Add, Subtract, Multiply, Divide, Power, Log, Ln, Exp, Root, Arc, Sin, Cos, Tan, Invert,
+    Add, Subtract, Multiply, Divide, XtoY, Log, Ln, Exp, Root, Arc, Sin, Cos, Tan, Invert,
     Display,
 } from './actions/actions'
 
@@ -43,7 +43,7 @@ streamDeck.actions.registerAction(new Add(hp35))
 streamDeck.actions.registerAction(new Subtract(hp35))
 streamDeck.actions.registerAction(new Multiply(hp35))
 streamDeck.actions.registerAction(new Divide(hp35))
-streamDeck.actions.registerAction(new Power(hp35))
+streamDeck.actions.registerAction(new XtoY(hp35))
 streamDeck.actions.registerAction(new Log(hp35))
 streamDeck.actions.registerAction(new Ln(hp35))
 streamDeck.actions.registerAction(new Exp(hp35))

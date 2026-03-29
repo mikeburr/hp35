@@ -211,7 +211,7 @@ export class Display extends SingletonAction {
 }
 
 @action({ UUID: "org.mikeburr.hp35.power" })
-export class Power extends hp35Button('power') {}
+export class XtoY extends hp35Button('xtoy') {}
 
 @action({ UUID: "org.mikeburr.hp35.log" })
 export class Log extends hp35Button('log') {}

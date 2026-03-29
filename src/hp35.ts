@@ -584,7 +584,7 @@ export class HP35 {
         })                
     }
 
-    power() {
+    xtoy() {
         this.ifOperatorAllowed(() => {
             if (toNumber(this.x) <= 0) {
                 this.improperOperation()

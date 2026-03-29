@@ -20,16 +20,16 @@
 
 
 		{
-			"Name": "power",
-			"UUID": "org.mikeburr.hp35.power",
-			"Icon": "images/actions/keys/power",
+			"Name": "xtoy",
+			"UUID": "org.mikeburr.hp35.xtoy",
+			"Icon": "images/actions/keys/xtoy",
 			"Tooltip": "calculator x raised to the y power key",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "images/actions/keys/power"
+					"Image": "images/actions/keys/xtoy"
 				}
 			]
 		},

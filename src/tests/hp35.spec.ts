@@ -108,9 +108,9 @@ describe('hp35', () => {
                 operation: [ 'ln' ],
             },
             {
-                description: 'power base 0',
+                description: 'xtoy base 0',
                 x: '0',
-                operation: [ 'power' ],
+                operation: [ 'xtoy' ],
             },
         ])('enforces the value limits on page 6 - $description', ({ x, operation }) => {
             if (x[0] === '-') {
@@ -243,7 +243,7 @@ describe('hp35', () => {
             expect(hp35).toDisplay({ mantissa: '4.' })
             expect(hp35).toHaveStack([ 0, 8, -1.5, 4 ])
 
-            hp35.power()
+            hp35.xtoy()
             expect(hp35).toDisplay({ mantissa: '.125' })
             expect(hp35).toHaveStack([ 0, 8, .125 ])
 
@@ -317,7 +317,7 @@ describe('hp35', () => {
             hp35.swapxy()
             expect(hp35).toDisplay({ mantissa: '2.' })
 
-            hp35.power()
+            hp35.xtoy()
             expect(hp35).toDisplay({ mantissa: '128.' })
             expect(hp35).toHaveStack([ 128 ])
         })
@@ -397,7 +397,7 @@ describe('hp35', () => {
             hp35.digit(5)
             expect(hp35).toDisplay({ mantissa: '5.' })
 
-            hp35.power()
+            hp35.xtoy()
             // manual shows 124.9999998
             expect(hp35).toDisplay({ mantissa: '125.' })
         })
