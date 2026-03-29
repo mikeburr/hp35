@@ -1,6 +1,7 @@
 {
     "scripts": {
         "build": "rollup -c",
+        "build:pack": "streamdeck pack -f org.mikeburr.hp35.sdPlugin",
         "deploy": "rsync -rv org.mikeburr.hp35.sdPlugin/ /home/mike/.config/opendeck/plugins/org.mikeburr.hp35.sdPlugin/ && opendeck --reload-plugin org.mikeburr.hp35.sdPlugin",
         "test": "vitest",
         "test:coverage": "vitest run --coverage",
