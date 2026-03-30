@@ -1,0 +1,22 @@
+#layers {
+    min-width: 300px;
+}
+
+.layer {
+    padding-bottom: 10px;
+}
+
+.current {
+    padding: 5px;
+    border-radius: 5px;
+    color: #e3e5b9;
+    background-color: #229bbd;
+}
+
+.not-current {
+    padding: 5px;
+    border-radius: 5px;
+    color: #0a0f11;
+    background-color: #2f4342;
+    cursor: pointer;
+}

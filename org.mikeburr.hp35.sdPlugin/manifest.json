@@ -506,6 +506,36 @@
 					"Image": "images/actions/keys/display"
 				}
 			]
+		},
+		{
+			"Name": "Next layer",
+			"UUID": "org.mikeburr.hp35.nextlayer",
+			"PropertyInspectorPath": "ui/layers.html",
+			"Icon": "images/actions/keys/next",
+			"Tooltip": "cycles to the next layer",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "images/actions/keys/next"
+				}
+			]
+		},
+		{
+			"Name": "Previous layer",
+			"UUID": "org.mikeburr.hp35.prevlayer",
+			"PropertyInspectorPath": "ui/layers.html",
+			"Icon": "images/actions/keys/prev",
+			"Tooltip": "cycles to the previous layer",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "images/actions/keys/prev"
+				}
+			]
 		}
 	],
 	"Category": "HP35",
