@@ -536,6 +536,21 @@
 					"Image": "images/actions/keys/prev"
 				}
 			]
+		},
+		{
+			"Name": "Multikey",
+			"UUID": "org.mikeburr.hp35.multikey",
+			"PropertyInspectorPath": "ui/testing.html",
+			"Icon": "images/actions/keys/multikey",
+			"Tooltip": "simulates multiple calculator keys",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "images/actions/keys/multikey"
+				}
+			]
 		}
 	],
 	"Category": "HP35",
