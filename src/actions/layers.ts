@@ -24,7 +24,7 @@ const SVG_STYLES = `
         .arrow {
             font: bold 18pt sans-serif;
             text-anchor: middle;
-            fill: black;
+            fill: #e3e5b9;
         }
         .selected-box {
             fill: #229bbd;
