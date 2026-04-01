@@ -23,6 +23,11 @@ export function addGlobalSettingsListener(listener: Listener) {
     listener(currentSettings)
 }
 
+export async function setGlobalSettings(newSettings: GlobalSettings): Promise<GlobalSettings> {
+    await streamDeck.settings.setGlobalSettings<GlobalSettings>(newSettings)
+    return streamDeck.settings.getGlobalSettings<GlobalSettings>()
+}
+
 streamDeck.settings.getGlobalSettings<GlobalSettings>()
 
 streamDeck.settings.onDidReceiveGlobalSettings((ev: DidReceiveGlobalSettingsEvent<GlobalSettings>) => {

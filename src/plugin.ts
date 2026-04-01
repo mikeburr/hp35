@@ -9,6 +9,7 @@ import {
     Arc, Sin, Cos, Tan,
 } from './actions/actions'
 import { Display } from "./actions/display"
+import { NextLayer, PreviousLayer } from "./actions/layers"
 import { MultiKey } from "./actions/multikey"
 
 const logger = streamDeck.logger.setLevel("trace");
@@ -65,6 +66,8 @@ streamDeck.actions.registerAction(new Tan(hp35))
 // non-mathematical actions
 streamDeck.actions.registerAction(new Display(hp35))
 streamDeck.actions.registerAction(new MultiKey(hp35))
+streamDeck.actions.registerAction(new NextLayer())
+streamDeck.actions.registerAction(new PreviousLayer())
 
 streamDeck.connect();
 
