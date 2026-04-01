@@ -28,11 +28,11 @@ const SVG_STYLES = `
         }
         .selected-box {
             fill: #229bbd;
-            rx: 5;
+            rx: 5px;
         }
         .unselected-box {
             fill: #264342;
-            rx: 5;
+            rx: 5px;
             stroke: black;
             stroke-width: 1;
         }
