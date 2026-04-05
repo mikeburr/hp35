@@ -43,15 +43,16 @@ The Display action can be assigned to multiple buttons. The plugin automatically
 detects whether the action has been assigned to 1, 2, or 3 horizontally
 adjacent buttons and adjusts the display to make use of the available space.
 
-For example, the value $`-1.234567891\times 10^-56`$ would be displayed as
-![one button display](src/images/readme/display-one-button.png) on a single button,
-![two button display](src/images/readme/display-two-buttons.png) on two
-horizontaly adjacent buttons, and
-![three button display](src/images/readme/display-three-buttons.png) on three
-horizontaly adjacent buttons.
+For example, the value $`-1.234567891\times 10^{-56}`$ would be displayed:
+
+| number of buttons | |
+| ---------- | ---------- |
+| single button  | ![one button display](src/images/readme/display-one-button.png) |
+| two horizontally adjacent buttons | ![two button display](src/images/readme/display-two-buttons.png) |
+| three horizontally adjacent buttons | ![three button display](src/images/readme/display-three-buttons.png) |
 
 ### Layers and Multikey
-The 35 keys on the HP-35 obviously cannot fit on most (any?) Stream Decks.
+All 35 keys on the HP-35 obviously cannot fit on most (any?) Stream Decks.
 To help you create a more usable profile, this plugin has the notion of
 layers. A layer is a logical construct that can be used to change which
 calculator actions are displayed on one or more buttons of your Stream Deck.
@@ -66,16 +67,36 @@ when the button is pressed.
 Note that the button only displays the names of the current layer
 plus two additional layers. If you have more than three layers defined
 they will be displayed as you change the current layer.
+Here, for example, here is a profile where the "Next layer" action has been
+assigned to the bottom left button on a Stream Deck XL. In the property
+inspector for the button you can see that there are 3 layers defined,
+named "stack", "algebra", and "trig".
 
-Assign the "Multikey" action to a button(s) whose behavior should change
+![profile with next layer button](src/images/readme/profile-next-layer.png)
+
+Assign the "Multikey" action to button(s) whose behavior should change
 based on the current layer. By default, a Multikey button shows a blank
 key for each layer. Pressing a Multikey button that is blank has no effect.
 The Multikey property inspector allows you to assign different actions to
-the button for each of layer currently defined. All 35 of the HP-35
+the button for each of the layers currently defined. All 35 of the HP-35
 calculator keys plus a "(blank)" key are available for assignment.
 The Multikey button's display automatically updates to show the image
 for the calculator key assigned to the current layer.
 Use the property inspector for the "Next layer" or
 "Previous layer" actions to add, remove, or rename layers.
+Continuing the example above, this screenshot shows a Multikey action
+assigned to the 3rd button in the 2nd row. The property inspector shows the
+following assignments for the button:
+
+| layer | action/key |
+| ----- | ----- |
+| stack | swapxy |
+| algebra | xtoy |
+| trig | sin |
+
+The current layer is "algebra" (shown on the bottom left button), so the
+multikey is acting as an $`x^y`$ action.
+
+![profile with multikey](src/images/readme/profile-multikey.png)
 
 ## Installation
