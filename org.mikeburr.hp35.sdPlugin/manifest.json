@@ -557,7 +557,7 @@
 	"CategoryIcon": "images/plugin/category-icon",
 	"CodePath": "bin/plugin.js",
 	"Description": "HP35 emulator",
-	"Icon": "images/plugin/marketplace",
+	"Icon": "images/plugin/icon",
 	"SDKVersion": 3,
 	"Software": {
 		"MinimumVersion": "6.9"
@@ -576,5 +576,7 @@
 		"Version": "20",
 		"Debug": "enabled"
 	},
+	"SupportURL": "https://github.com/mikeburr/hp35/issues",
+	"URL": "https://github.com/mikeburr/hp35",
 	"UUID": "org.mikeburr.hp35"
 }
