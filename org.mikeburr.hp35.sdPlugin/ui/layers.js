@@ -1,10 +1,10 @@
-let settings = {};
+let globalSettings = {}
 let renameTimeout
 
 function renderLayers() {
     const section = document.getElementById('layers')
     section.innerHTML =
-        settings.layers.map((layer, i) => `
+        globalSettings.layers.map((layer, i) => `
             <div class="layer">
                 <input type="text"
                        name="layer-${i}"
@@ -14,11 +14,11 @@ function renderLayers() {
                 </input>
                 <button type="button"
                         onclick="removeLayer(event, ${i})"
-                        ${settings.layers.length > 1 ? '' : 'disabled'}
+                        ${globalSettings.layers.length > 1 ? '' : 'disabled'}
                         title="Remove layer">
                     -
                 </button>
-                <a class="${settings.currentLayer === i ? 'current' : 'not-current'}"
+                <a class="${globalSettings.currentLayer === i ? 'current' : 'not-current'}"
                     onclick="selectLayer(event, ${i})">
                     current
                 </a>
@@ -29,55 +29,44 @@ function renderLayers() {
 }
 
 function addLayer(ev) {
-    settings.layers.push('')
+    globalSettings.layers.push('')
 
-    SDPIComponents.streamDeckClient.setGlobalSettings(settings)
+    SDPIComponents.streamDeckClient.setGlobalSettings(globalSettings)
     renderLayers()
 }
 
 function removeLayer(ev, index) {
-    settings.layers.splice(index, 1)
-    if (settings.currentLayer >= settings.layers.length) {
-        settings.currentLayer = settings.layers.length - 1
+    globalSettings.layers.splice(index, 1)
+    if (globalSettings.currentLayer >= globalSettings.layers.length) {
+        globalSettings.currentLayer = globalSettings.layers.length - 1
     }
 
-    SDPIComponents.streamDeckClient.setGlobalSettings(settings)
+    SDPIComponents.streamDeckClient.setGlobalSettings(globalSettings)
     renderLayers()
 }
 
 function renameLayer(ev, index) {
-    settings.layers[index] = ev.target.value
+    globalSettings.layers[index] = ev.target.value
 
     if (renameTimeout) {
         clearTimeout(renameTimeout)
     }
 
     renameTimeout = setTimeout(() => {
-        SDPIComponents.streamDeckClient.setGlobalSettings(settings)
+        SDPIComponents.streamDeckClient.setGlobalSettings(globalSettings)
     }, 500)
 }
 
 function selectLayer(ev, index) {
-    settings.currentLayer = index
+    globalSettings.currentLayer = index
 
-    SDPIComponents.streamDeckClient.setGlobalSettings(settings)
+    SDPIComponents.streamDeckClient.setGlobalSettings(globalSettings)
     renderLayers()
 }
 
-SDPIComponents.streamDeckClient.didReceiveGlobalSettings.subscribe(event => {
-    settings = event.payload.settings
-
-    if (! ('currentLayer' in settings)) {
-        settings = {
-            layers: [ 'default layer' ],
-            currentLayer: 0,
-        }
-
-        SDPIComponents.streamDeckClient.setGlobalSettings(settings)
+SDPIComponents.streamDeckClient.sendToPropertyInspector.subscribe(event => {
+    if (event.payload.globalSettings) {
+        globalSettings = event.payload.globalSettings
+        renderLayers()
     }
-
-    renderLayers()
 })
-
-// initialize UI
-SDPIComponents.streamDeckClient.getGlobalSettings()

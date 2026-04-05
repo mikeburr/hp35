@@ -5,6 +5,7 @@ import {
     SingletonAction,
     type WillAppearEvent,
     type WillDisappearEvent,
+    PropertyInspectorDidAppearEvent,
 } from "@elgato/streamdeck";
 import { addGlobalSettingsListener, type GlobalSettings, setGlobalSettings } from "../global-settings"
 
@@ -51,16 +52,9 @@ export class NextLayer extends SingletonAction<Settings> {
 
         addGlobalSettingsListener(globalSettings => {
             this.globalSettings = globalSettings
+            streamDeck.ui.sendToPropertyInspector({ globalSettings })
             this.refresh()
         })
-    }
-
-    override onWillAppear(ev: WillAppearEvent<Settings>): Promise<void> | void {
-        setTimeout(() => this.refresh(), 500)
-    }
-
-    override onWillDisappear(ev: WillDisappearEvent<Settings>): Promise<void> | void {
-        setTimeout(() => this.refresh(), 500)
     }
 
     override async onKeyDown(ev: KeyDownEvent) {
@@ -73,6 +67,19 @@ export class NextLayer extends SingletonAction<Settings> {
             ...this.globalSettings,
             currentLayer: (this.globalSettings.currentLayer + 1) % this.globalSettings.layers.length,
         })
+    }
+
+    override onWillAppear(ev: WillAppearEvent<Settings>): Promise<void> | void {
+        setTimeout(() => this.refresh(), 500)
+    }
+
+    override onWillDisappear(ev: WillDisappearEvent<Settings>): Promise<void> | void {
+        setTimeout(() => this.refresh(), 500)
+    }
+
+    override onPropertyInspectorDidAppear(ev: PropertyInspectorDidAppearEvent<Settings>): Promise<void> | void {
+        // global setting updates are flaky in property inspectors so use the action's
+        streamDeck.ui.sendToPropertyInspector({ globalSettings: this.globalSettings })
     }
 
     refresh() {
@@ -116,7 +123,7 @@ export class NextLayer extends SingletonAction<Settings> {
                     ${nextLayers}
             </svg>`
 
-        streamDeck.logger.info(`NextLayer: rendering:\n${svg}`)
+        // streamDeck.logger.info(`NextLayer: rendering:\n${svg}`)
 
         const image = `data:image/svg+xml;charset=utf8,${encodeURIComponent(svg)}`
 
@@ -135,16 +142,9 @@ export class PreviousLayer extends SingletonAction {
 
         addGlobalSettingsListener(globalSettings => {
             this.globalSettings = globalSettings
+            streamDeck.ui.sendToPropertyInspector({ globalSettings })
             this.refresh()
         })
-    }
-
-    override onWillAppear(ev: WillAppearEvent<Settings>): Promise<void> | void {
-        setTimeout(() => this.refresh(), 500)
-    }
-
-    override onWillDisappear(ev: WillDisappearEvent<Settings>): Promise<void> | void {
-        setTimeout(() => this.refresh(), 500)
     }
 
     override async onKeyDown(ev: KeyDownEvent) {
@@ -158,7 +158,20 @@ export class PreviousLayer extends SingletonAction {
             currentLayer: (this.globalSettings.currentLayer + this.globalSettings.layers.length - 1) % this.globalSettings.layers.length,
         })
     }
-    
+
+    override onWillAppear(ev: WillAppearEvent<Settings>): Promise<void> | void {
+        setTimeout(() => this.refresh(), 500)
+    }
+
+    override onWillDisappear(ev: WillDisappearEvent<Settings>): Promise<void> | void {
+        setTimeout(() => this.refresh(), 500)
+    }
+
+    override onPropertyInspectorDidAppear(ev: PropertyInspectorDidAppearEvent<Settings>): Promise<void> | void {
+        // global setting updates are flaky in property inspectors so use the action's
+        streamDeck.ui.sendToPropertyInspector({ globalSettings: this.globalSettings })
+    }
+
     refresh() {
         if (! this.globalSettings) {
             return
@@ -200,7 +213,7 @@ export class PreviousLayer extends SingletonAction {
                     ${selectedLayer}
             </svg>`
 
-        streamDeck.logger.info(`PreviousLayer: rendering:\n${svg}`)
+        // streamDeck.logger.info(`PreviousLayer: rendering:\n${svg}`)
 
         const image = `data:image/svg+xml;charset=utf8,${encodeURIComponent(svg)}`
 
