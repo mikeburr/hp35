@@ -100,3 +100,11 @@ multikey is acting as an $`x^y`$ action.
 ![profile with multikey](src/images/readme/profile-multikey.png)
 
 ## Installation
+Download the [.streamDeckPlugin](https://github.com/mikeburr/hp35/releases/download/1.0.0/org.mikeburr.hp35.streamDeckPlugin)
+file and install in the application you use to manage your Stream Deck.
+
+Disclaimer: this plugin has only been tested with [OpenDeck](https://github.com/nekename/OpenDeck)
+running on Ubuntu Linux talking to Stream Deck XL hardware.
+It uses only APIs described in
+[Elgato's Stream Deck SDK](https://docs.elgato.com/streamdeck/sdk/introduction/getting-started),
+and **should** work elsewhere, but has never been tested elsewhere.
